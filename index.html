@@ -34,7 +34,19 @@
       font-weight: bold;
       color: #c78cff;
     }
+.nav-links {
+  display: flex;
+  align-items: center;
+}
 
+.menu-button {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
     nav a {
       color: #ddd;
       text-decoration: none;
@@ -298,7 +310,33 @@
       nav {
         padding: 18px 5%;
       }
+.nav-links {
+  display: none;
+  position: absolute;
+  top: 70px;
+  left: 5%;
+  right: 5%;
+  flex-direction: column;
+  align-items: stretch;
+  background: #100c18;
+  border: 1px solid #292039;
+  border-radius: 15px;
+  padding: 15px;
+  z-index: 100;
+}
 
+.nav-links.active {
+  display: flex;
+}
+
+.nav-links a {
+  padding: 12px;
+  margin: 2px 0;
+}
+
+.menu-button {
+  display: block;
+}
   
     
 
@@ -333,23 +371,22 @@
 </head>
 
 <body>
+<nav>
+  <div class="logo">Laurex</div>
 
-  <nav>
-    <div class="logo">Laurex</div>
+  <div class="nav-links" id="navLinks">
+    <a href="#">Home</a>
+    <a href="#find-help">Find Help</a>
+    <a href="#">Become a Helper</a>
+    <a href="#">How It Works</a>
+    <a href="#">About</a>
+    <a href="#">Log in</a>
+    <a href="#" class="signup">Sign up</a>
+  </div>
 
-    <div>
-      <a href="#">Home</a>
-      <a href="#find-help">Find Help</a>
-      <a href="#">Become a Helper</a>
-      <a href="#">How It Works</a>
-      <a href="#">About</a>
-    </div>
-
-    <div>
-      <a href="#">Log in</a>
-      <a href="#" class="signup">Sign up</a>
-    </div>
-  </nav>
+  <button class="menu-button" onclick="toggleMenu()">☰</button>
+</nav>
+  
 
 
   <section class="hero">
@@ -604,7 +641,9 @@
   }
 
 }
-  
+  function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("active");
+}
 
   </script>
 
