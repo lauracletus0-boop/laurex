@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Laurex — Help is just a click away</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #07050d;
+      color: white;
+      line-height: 1.6;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 7%;
+      border-bottom: 1px solid #211934;
+      background: #090611;
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: bold;
+      color: #c78cff;
+    }
+
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      margin: 0 12px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #b96cff;
+    }
+
+    .signup {
+      background: #8c45e8;
+      color: white !important;
+      padding: 10px 18px;
+      border-radius: 10px;
+    }
+
+    .hero {
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      padding: 80px 7%;
+      background:
+        radial-gradient(circle at 80% 30%, #4b1974 0%, transparent 35%),
+        radial-gradient(circle at 20% 80%, #281044 0%, transparent 30%);
+    }
+
+    .hero-content {
+      max-width: 650px;
+    }
+
+    .tag {
+      display: inline-block;
+      border: 1px solid #70419b;
+      background: #160d25;
+      color: #d59aff;
+      padding: 8px 15px;
+      border-radius: 30px;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: clamp(48px, 7vw, 82px);
+      line-height: 1.05;
+      margin-bottom: 25px;
+    }
+
+    h1 span {
+      color: #b765ff;
+    }
+
+    .hero p {
+      color: #b9b2c5;
+      font-size: 18px;
+      max-width: 600px;
+      margin-bottom: 30px;
+    }
+
+    .search {
+      display: flex;
+      max-width: 620px;
+      background: #12101a;
+      border: 1px solid #393044;
+      border-radius: 14px;
+      padding: 7px;
+    }
+
+    .search input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: white;
+      padding: 15px;
+      font-size: 16px;
+    }
+
+    .search button {
+      background: #8d48e8;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 0 28px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .popular {
+      margin-top: 18px;
+      color: #aaa;
+    }
+
+    .pill {
+      display: inline-block;
+      background: #171321;
+      border: 1px solid #292133;
+      padding: 6px 12px;
+      border-radius: 20px;
+      margin: 4px;
+      font-size: 13px;
+    }
+
+    section {
+      padding: 70px 7%;
+    }
+
+    .section-title {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      color: #aaa;
+      margin-bottom: 35px;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #151020, #0d0a14);
+      border: 1px solid #292039;
+      border-radius: 18px;
+      padding: 28px 20px;
+      transition: 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #914ee9;
+    }
+
+    .icon {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .step {
+      text-align: center;
+      background: #100c18;
+      border: 1px solid #292039;
+      padding: 35px 20px;
+      border-radius: 18px;
+    }
+
+    .number {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #7839c8;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .helper {
+      background: linear-gradient(120deg, #251044, #120b1d);
+      border: 1px solid #613497;
+      border-radius: 25px;
+      padding: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .helper h2 {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .helper p {
+      color: #c1b7ca;
+      max-width: 600px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #9049e9;
+      color: white;
+      text-decoration: none;
+      padding: 14px 25px;
+      border-radius: 10px;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .feature {
+      padding: 25px;
+      background: #0e0b15;
+      border: 1px solid #272033;
+      border-radius: 15px;
+    }
+
+    .feature strong {
+      display: block;
+      margin-bottom: 7px;
+      color: #d095ff;
+    }
+
+    .feature p {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    footer {
+      padding: 50px 7%;
+      border-top: 1px solid #251b32;
+      background: #08060d;
+      text-align: center;
+    }
+
+    footer .logo {
+      margin-bottom: 10px;
+    }
+
+    footer p {
+      color: #888;
+    }
+
+    @media (max-width: 900px) {
+      .categories,
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero {
+        padding-top: 60px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        padding: 18px 5%;
+      }
+
+      nav div:nth-child(2) {
+        display: none;
+      }
+
+      .hero {
+        padding: 60px 5%;
+      }
+
+      section {
+        padding: 55px 5%;
+      }
+
+      .categories,
+      .features,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .helper {
+        padding: 30px;
+        display: block;
+      }
+
+      .search {
+        flex-direction: column;
+      }
+
+      .search button {
+        padding: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo">L Laurex</div>
+
+    <div>
+      <a href="#">Home</a>
+      <a href="#">Find Help</a>
+      <a href="#">Become a Helper</a>
+      <a href="#">How It Works</a>
+      <a href="#">About</a>
+    </div>
+
+    <div>
+      <a href="#">Log in</a>
+      <a href="#" class="signup">Sign up</a>
+    </div>
+  </nav>
+
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="tag">✦ Your help, one tap away</div>
+
+      <h1>
+        Help is just a <span>click</span> away.
+      </h1>
+
+      <p>
+        Laurex connects you with trusted helpers for everyday
+        tasks and services — fast, safe, and reliable.
+      </p>
+
+      <div class="search">
+        <input
+          type="text"
+          placeholder="What do you need help with?"
+        >
+
+        <button onclick="searchHelp()">Search</button>
+      </div>
+
+      <div class="popular">
+        Popular:
+        <span class="pill">Essay writing</span>
+        <span class="pill">Logo design</span>
+        <span class="pill">Video editing</span>
+        <span class="pill">Business plan</span>
+        <span class="pill">Data entry</span>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">
+      <span style="color:#c47dff;">Popular</span> Categories
+    </h2>
+
+    <p class="section-subtitle">
+      Find the right person for whatever you need.
+    </p>
+
+    <div class="categories">
+
+      <div class="card">
+        <div class="icon">🎓</div>
+        <h3>Academic Help</h3>
+        <p>Essays, research, tutoring and school support.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🎨</div>
+        <h3>Design & Creative</h3>
+        <p>Logos, graphics, content and creative work.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">💻</div>
+        <h3>Tech & Programming</h3>
+        <p>Websites, apps, coding and technical support.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">💼</div>
+        <h3>Business</h3>
+        <p>Business plans, administration and consulting.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">✍️</div>
+        <h3>Writing & Editing</h3>
+        <p>Articles, essays, reports and editing.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🧑‍💻</div>
+        <h3>Virtual Assistant</h3>
+        <p>Administrative and remote support.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🌱</div>
+        <h3>Lifestyle</h3>
+        <p>Personal tasks, wellness and everyday help.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🎁</div>
+        <h3>Events & Errands</h3>
+        <p>Planning, shopping and everyday errands.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">How Laurex Works</h2>
+
+    <p class="section-subtitle">
+      Three simple steps to get things done.
+    </p>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="number">1</div>
+        <h3>Post a Request</h3>
+        <p>
+          Tell us what you need help with.
+        </p>
+      </div>
+
+      <div class="step">
+        <div class="number">2</div>
+        <h3>Get Matched</h3>
+        <p>
+          Connect with suitable helpers.
+        </p>
+      </div>
+
+      <div class="step">
+        <div class="number">3</div>
+        <h3>Get It Done</h3>
+        <p>
+          Collaborate, complete the task and leave a review.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="helper">
+
+      <div>
+        <h2>Turn your skills into income.</h2>
+
+        <p>
+          Become a Laurex helper, showcase your skills,
+          get discovered by people who need your services
+          and build your reputation.
+        </p>
+
+        <a href="#" class="button">
+          Become a Helper
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="section-title">Why Laurex?</h2>
+
+    <p class="section-subtitle">
+      A marketplace built around trust.
+    </p>
+
+    <div class="features">
+
+      <div class="feature">
+        <strong>🛡️ ID Verification</strong>
+        <p>Verification can help create a trusted community.</p>
+      </div>
+
+      <div class="feature">
+        <strong>🔒 Secure Payments</strong>
+        <p>Payments will be connected to a legitimate provider.</p>
+      </div>
+
+      <div class="feature">
+        <strong>⭐ Ratings & Reviews</strong>
+        <p>See feedback and build your reputation.</p>
+      </div>
+
+      <div class="feature">
+        <strong>💬 In-App Chat</strong>
+        <p>Communicate with people about your requests and services.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+
+    <div class="logo">L Laurex</div>
+
+    <p>
+      Need help? Find the right person. Get things done.
+    </p>
+
+    <p style="margin-top:15px;">
+      © 2026 Laurex. All rights reserved.
+    </p>
+
+  </footer>
+
+
+  <script>
+
+    function searchHelp() {
+
+      const input = document.querySelector(".search input");
+
+      if (input.value.trim() === "") {
+        alert("Tell Laurex what you need help with.");
+      } else {
+        alert(
+          "Laurex search is coming soon. You searched for: " +
+          input.value
+        );
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>
