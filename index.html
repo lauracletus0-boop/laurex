@@ -340,7 +340,7 @@
 
     <div>
       <a href="#">Home</a>
-      <a href="#">Find Help</a>
+      <a href="#find-help">Find Help</a>
       <a href="#">Become a Helper</a>
       <a href="#">How It Works</a>
       <a href="#">About</a>
@@ -454,7 +454,28 @@
     </div>
 
   </section>
+<section id="find-help">
 
+  <h2 class="section-title">
+    Find the <span style="color:#c47dff;">right help</span> for you.
+  </h2>
+
+  <p class="section-subtitle">
+    Tell us what you need and discover people who can help.
+  </p>
+
+  <div class="search">
+    <input
+      type="text"
+      placeholder="What do you need help with?"
+    >
+
+    <button>
+      Find Help
+    </button>
+  </div>
+
+</section>
 
   <section>
 
@@ -570,20 +591,21 @@
 
   <script>
 
-    function searchHelp() {
+    function findHelp() {
 
-      const input = document.querySelector(".search input");
+  const input = document.querySelector("#find-help input");
 
-      if (input.value.trim() === "") {
-        alert("Tell Laurex what you need help with.");
-      } else {
-        alert(
-          "Laurex search is coming soon. You searched for: " +
-          input.value
-        );
-      }
+  if (input.value.trim() === "") {
+    alert("Tell Laurex what you need help with.");
+  } else {
+    alert(
+      "We're looking for help with: " +
+      input.value
+    );
+  }
 
-    }
+}
+  
 
   </script>
 
